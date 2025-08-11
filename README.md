@@ -1,12 +1,37 @@
-# React + Vite
+# 📁 프로젝트 디렉토리 구조 및 역할
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+본 프로젝트는 **FSD(Floder-by-Feature-Structure)** 를 기반으로 설계되었으며, 모든 파일과 폴더는 역할과 범위에 따라 구분됩니다.
+아래는 주요 폴더와 파일들의 역할 및 사용 기준을 정리한 문서입니다.
 
-Currently, two official plugins are available:
+## 폴더구조
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+pages/
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+features/                     # 주요 기능 단위
+├── main/                     # 메인
+│   ├── ui/                   # 메인화면 관련 UI 컴포넌트
+│   ├── services/             # API 호출, 상태관리, 비즈니스 로직
+│   ├── lib/                  # 유틸 함수 및 커스텀 훅
+│   ├── search.types.ts       # 로컬 타입 정의
+│   └── consts/               # 로컬 상수 정의
+├── auth/                     # 인증 기능
+└── ...
+
+shared/                       # 재사용 가능한 전역 리소스
+├──assets/                    # 정적 이미지 소스 관리
+│   ├── fonts/                # 폰트 파일
+│   ├── icons/                # 아이콘 (svg)
+│   ├── images/               # 이미지 파일 (jpg, png, svg...)
+├── components/               # 공용 컴포넌트 (Button, Modal 등)
+├── config/                   # 환경 설정
+├── consts/                   # 전역 상수
+├── lib/                      # 공용 유틸함수 및 커스텀 훅
+│   ├── utils/                # 유틸함수
+│   └── hooks/                # 커스텀 훅
+├── services/                 # 전역 API, 상태관리, 비즈니스 로직
+├── styles/                   # 전역 스타일 관리
+└── types/                    # 전역 타입
+
+```
