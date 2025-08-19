@@ -1,0 +1,9 @@
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.nav-icon {
+  width: 28px;
+  height: 28px;
+}
