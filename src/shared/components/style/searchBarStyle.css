@@ -16,3 +16,8 @@
   position: relative;
   padding: 16px;
 }
+@media screen and (max-width: 800px) {
+  .search-cont {
+    display: none;
+  }
+}
