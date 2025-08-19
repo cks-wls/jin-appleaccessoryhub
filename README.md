@@ -8,7 +8,6 @@
 ```
 features/                     # 주요 기능 단위
 ├── main/                     # 메인
-│   ├── ui/                   # 메인화면 관련 UI 컴포넌트
 │   ├── services/             # API 호출, 상태관리, 비즈니스 로직
 │   ├── lib/                  # 유틸 함수 및 커스텀 훅
 │   ├── search.types.ts       # 로컬 타입 정의
@@ -21,14 +20,13 @@ shared/                       # 재사용 가능한 전역 리소스
 │   ├── fonts/                # 폰트 파일
 │   ├── icons/                # 아이콘 (svg)
 │   ├── images/               # 이미지 파일 (jpg, png, svg...)
-├── components/               # 공용 컴포넌트 (Button, Modal 등)
+├── components/               # 컴포넌트
+    ├── style/                # css파일
 ├── config/                   # 환경 설정
 ├── consts/                   # 전역 상수
 ├── lib/                      # 공용 유틸함수 및 커스텀 훅
 │   ├── utils/                # 유틸함수
 │   └── hooks/                # 커스텀 훅
 ├── services/                 # 전역 API, 상태관리, 비즈니스 로직
-├── styles/                   # 전역 스타일 관리
-└── types/                    # 전역 타입
 
 ```
