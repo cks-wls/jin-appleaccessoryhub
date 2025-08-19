@@ -1,0 +1,39 @@
+.footer-cont {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100vw;
+  height: 504px;
+  background-color: #000;
+  color: #ffffff;
+  padding: 0 10%;
+  gap: 100px;
+}
+.footer-top {
+  display: flex;
+  position: relative;
+  top: 104px;
+  justify-content: space-between;
+}
+h3 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+p {
+  font-size: 16px;
+}
+ul {
+  font-size: 20px;
+  font-weight: bold;
+}
+li {
+  list-style: none;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.about {
+  display: flex;
+  gap: 36px;
+}
