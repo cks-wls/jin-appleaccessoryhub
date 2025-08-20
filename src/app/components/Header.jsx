@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import SearchBar from "./SearchBar";
-import NavLinks from "./NavLinks";
-import blackLogo from "../assets/blacklogo.svg";
+import SearchBar from "./SearchBar.jsx";
+import NavLinks from "./NavLinks.jsx";
+import blackLogo from "../assets/icons/blacklogo.svg";
 export default function Header() {
   return (
     <>

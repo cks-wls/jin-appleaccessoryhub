@@ -1,6 +1,6 @@
-import likeIcon from "../assets/like.svg";
-import cartIcon from "../assets/cart.svg";
-import profileIcon from "../assets/profile.svg";
+import likeIcon from "../assets/icons/like.svg";
+import cartIcon from "../assets/icons/cart.svg";
+import profileIcon from "../assets/icons/profile.svg";
 
 const navImg = [
   { like: likeIcon },

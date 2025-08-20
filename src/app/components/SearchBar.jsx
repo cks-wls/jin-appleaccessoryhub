@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import searchIcon from "../assets/search.svg";
+import searchIcon from "../assets/icons/search.svg";
 
 export default function SearchBar() {
   return (
