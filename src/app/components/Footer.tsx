@@ -37,12 +37,12 @@ const tabletScreen = "768px";
 const desktopScreen = "1025px";
 
 const FooterContainer = styled.footer`
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   background-color: #000;
   color: #ffffff;
   padding: 0 10%;

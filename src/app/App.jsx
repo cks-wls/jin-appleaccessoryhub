@@ -1,11 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.js";
+import Footer from "./components/Footer.jsx";
+import AdProductContainer from "./components/AdProductContainer.jsx";
 function App() {
   return (
     <>
       <GlobalStyle />
       <Header />
+      <AdProductContainer />
       <Footer />
     </>
   );
