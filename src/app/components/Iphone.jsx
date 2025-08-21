@@ -12,6 +12,7 @@ function Iphone() {
 }
 
 const desktopWidth = "1025px";
+const tabletWidth = "767px";
 
 export default Iphone;
 
@@ -29,8 +30,11 @@ const Container = styled.div`
 `;
 const IphoneImage = styled.img`
   position: relative;
-  bottom: 130px;
+  bottom: 300px;
   z-index: 0;
+  @media screen and (min-width: ${tabletWidth}) {
+    bottom: 160px;
+  }
   @media screen and (min-width: ${desktopWidth}) {
     bottom: 0;
   }

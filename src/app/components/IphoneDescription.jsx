@@ -50,10 +50,13 @@ const Bold = styled.span`
   font-weight: bold;
 `;
 const Mention = styled.p`
-  color: #909090;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+  @media screen and (min-width: ${tabletWidth}) {
+    color: #909090;
+  }
 `;
 const Button = styled.button`
   width: 191px;
