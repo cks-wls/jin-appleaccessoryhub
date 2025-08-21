@@ -15,7 +15,7 @@ export default function NavLinks() {
     </NavLinksContainer>
   );
 }
-const mobileWidth = "767px";
+const tabletWidth = "767px";
 
 const NavLinksContainer = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const NavLinksContainer = styled.div`
 const EtcIcon = styled.img`
   width: 40px;
   height: 40px;
-  @media screen and (min-width: ${mobileWidth}) {
+  @media screen and (min-width: ${tabletWidth}) {
     display: none;
   }
 `;
@@ -33,7 +33,7 @@ const IconImg = styled.img`
   width: 28px;
   height: 28px;
   display: none;
-  @media screen and (min-width: ${mobileWidth}) {
+  @media screen and (min-width: ${tabletWidth}) {
     display: block;
   }
 `;
