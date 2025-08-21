@@ -33,30 +33,46 @@ export default function Footer() {
     </FooterContainer>
   );
 }
+const tabletScreen = "768px";
+const desktopScreen = "1025px";
 
 const FooterContainer = styled.footer`
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
   bottom: 0;
   width: 100vw;
-  height: 504px;
   background-color: #000;
   color: #ffffff;
   padding: 0 10%;
-  gap: 100px;
+  gap: 90px;
+  @media screen and (min-width: ${tabletScreen}) {
+    height: 504px;
+    align-items: stretch;
+    gap: 100px;
+  }
 `;
 const FooterTop = styled.div`
   display: flex;
+  flex-direction: column;
   position: relative;
-  top: 104px;
-  justify-content: space-between;
+  text-align: center;
+  gap: 32px;
+  top: 48px;
+  @media screen and (min-width: ${tabletScreen}) {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    top: 104px;
+  }
   h3 {
     font-size: 20px;
     padding-bottom: 20px;
   }
   p {
     font-size: 16px;
+    line-height: 30px;
   }
   ul {
     font-size: 20px;
@@ -72,6 +88,7 @@ const FooterTop = styled.div`
 const About = styled.div`
   display: flex;
   gap: 36px;
+  margin-bottom: 48px;
 `;
 const FooterImg = styled.img`
   width: 25px;

@@ -12,7 +12,7 @@ export default function SearchBar() {
   );
 }
 
-const mobileWidth = "1025px";
+const desktopWidth = "1025px";
 
 const SearchContainer = styled.div`
   display: none;
@@ -25,7 +25,7 @@ const SearchContainer = styled.div`
     position: relative;
     padding: 16px;
   }
-  @media screen and (min-width: ${mobileWidth}) {
+  @media screen and (min-width: ${desktopWidth}) {
     display: flex;
   }
 `;
