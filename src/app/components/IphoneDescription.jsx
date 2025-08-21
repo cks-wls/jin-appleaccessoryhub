@@ -5,23 +5,38 @@ function IphoneDescription() {
     <Container>
       <Slogun>Pro.Beyond.</Slogun>
       <ProductName>
-        IPhone 14 <Bold>Pro</Bold>
+        IPhone 14 <Br />
+        <Bold>Pro</Bold>
       </ProductName>
       <Mention>
-        Created to change everything gor the better. For everyone
+        Created to change everything for the <Br />
+        better. For everyone
       </Mention>
-      <Button>Shop now</Button>
+      <Button>Shop Now</Button>
     </Container>
   );
 }
 
 export default IphoneDescription;
 
+const desktopWidth = "1025px";
+const tabletWidth = "767px";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  text-align: center;
+  @media screen and (min-width: ${desktopWidth}) {
+    align-items: stretch;
+  }
+  @media screen and (min-width: ${tabletWidth}) {
+    text-align: left;
+  }
 `;
 const Slogun = styled.p`
+  margin-top: 88px;
   color: #7b777c;
   font-size: 25px;
   font-weight: 600;
@@ -35,9 +50,13 @@ const Bold = styled.span`
   font-weight: bold;
 `;
 const Mention = styled.p`
-  color: #909090;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 500;
+  line-height: 24px;
+  @media screen and (min-width: ${tabletWidth}) {
+    color: #909090;
+  }
 `;
 const Button = styled.button`
   width: 191px;
@@ -52,5 +71,10 @@ const Button = styled.button`
   cursor: pointer;
   &:active {
     // 버튼에 클릭 애니메이션 추가(anumation pulse)
+  }
+`;
+const Br = styled.br`
+  @media screen and (min-width: ${tabletWidth}) {
+    display: none;
   }
 `;

@@ -6,22 +6,36 @@ function Iphone() {
   return (
     <Container>
       <IphoneDescription />
-      <img src={iphoneImage} alt="iPhone 14 Pro" />
+      <IphoneImage src={iphoneImage} alt="iPhone 14 Pro" />
     </Container>
   );
 }
 
-const tabletScreen = "768px";
+const desktopWidth = "1025px";
+const tabletWidth = "767px";
+
 export default Iphone;
 
 const Container = styled.div`
   display: flex;
   width: 100%;
   background-color: #211c24;
-  height: 769px;
+  flex-direction: column;
+  height: 632px;
   justify-content: space-evenly;
   align-items: center;
-  @media screen and (min-width: ${tabletScreen}) {
-    height: 632px;
+  @media screen and (min-width: ${desktopWidth}) {
+    flex-direction: row;
+  }
+`;
+const IphoneImage = styled.img`
+  position: relative;
+  bottom: 300px;
+  z-index: 0;
+  @media screen and (min-width: ${tabletWidth}) {
+    bottom: 160px;
+  }
+  @media screen and (min-width: ${desktopWidth}) {
+    bottom: 0;
   }
 `;
