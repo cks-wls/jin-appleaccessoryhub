@@ -12,9 +12,13 @@ function SecondAdContainer() {
 }
 export default SecondAdContainer;
 
+const desktopWidth = "1025px";
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 600px;
   z-index: 1;
+  @media screen and (min-width: ${desktopWidth}) {
+    flex-direction: row;
+  }
 `;

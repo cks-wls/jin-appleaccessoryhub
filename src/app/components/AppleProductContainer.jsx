@@ -13,6 +13,11 @@ function AppleProductContainer() {
 
 export default AppleProductContainer;
 
+const desktopWidth = "1025px";
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  @media screen and (min-width: ${desktopWidth}) {
+    flex-direction: row;
+  }
 `;

@@ -3,18 +3,20 @@ function AirpodsMaxDescription() {
   return (
     <Container>
       <Title>
-        Apple <br />
+        Apple <Br />
         AirPods
-        <br /> <Bold>Max</Bold>
+        <Br /> <Bold>Max</Bold>
       </Title>
       <Description>
-        Computational audio. <br /> Listen, it's powerful
+        Computational audio. <Br /> Listen, it's powerful
       </Description>
     </Container>
   );
 }
 
 export default AirpodsMaxDescription;
+
+const desktopWidth = "1025px";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,6 +31,15 @@ const Bold = styled.span`
 `;
 const Description = styled.p`
   color: #909090;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
+  @media screen and (min-width: ${desktopWidth}) {
+    font-size: 14px;
+  }
+`;
+const Br = styled.span`
+  display: none;
+  @media screen and (min-width: ${desktopWidth}) {
+    display: block;
+  }
 `;
