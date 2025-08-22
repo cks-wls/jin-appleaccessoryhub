@@ -21,6 +21,7 @@ const SearchContainer = styled.div`
   height: 55px;
   background-color: #f5f5f5;
   border-radius: 8px;
+  overflow-y: hidden;
   img {
     position: relative;
     padding: 16px;
