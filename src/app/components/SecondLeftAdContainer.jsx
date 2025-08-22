@@ -13,8 +13,12 @@ function SecondLeftAdContainer() {
 
 export default SecondLeftAdContainer;
 
+const desktopWidth = "1025px";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+  @media screen and (min-width: ${desktopWidth}) {
+    width: 50%;
+  }
 `;
