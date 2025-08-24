@@ -26,9 +26,13 @@ function BottomProductContainer() {
 
 export default BottomProductContainer;
 
+const desktopWidth = "1025px";
 const Container = styled.div`
-  display: flex;
+  display: none;
   width: 100%;
+  @media screen and (min-width: ${desktopWidth}) {
+    display: flex;
+  }
 `;
 
 const BottomEachProductContainer = styled.div`

@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import bottomadimgdesktop from "../assets/images/bottomadimgdesktop.png";
+import bottomadimg from "../assets/images/bottomadimg.png";
+import useWindowWidth from "../lib/hooks/useWindowWidth";
 function BottomAdContainer() {
+  const windowWidth = useWindowWidth();
+  const url = windowWidth > 768 ? bottomadimgdesktop : bottomadimg;
   return (
     <Container>
-      <Img src={bottomadimgdesktop} alt="bottomadimgdesktop" />
+      <Img src={url} alt={url} />
       <TextContainer>
         <Title>
-          Big Summer <Bold>Sale</Bold>
+          Big Summer <Br />
+          <Bold>Sale</Bold>
         </Title>
-        <Text>Commodo fames vitae vitae leo mauris in. Eu consequat.</Text>
+        <Text>
+          Commodo fames vitae vitae leo mauris in. Eu <Br />
+          consequat.
+        </Text>
         <Button>Shop Now</Button>
       </TextContainer>
     </Container>
@@ -16,12 +24,17 @@ function BottomAdContainer() {
 }
 export default BottomAdContainer;
 
+const tabletWidth = "768px";
 const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  @media screen and (min-width: ${tabletWidth}) {
+    text-align: left;
+  }
 `;
 
 const Img = styled.img`
@@ -35,9 +48,16 @@ const TextContainer = styled.div`
   align-items: center;
 `;
 const Title = styled.h2`
-  font-size: 72px;
+  font-size: 48px;
   font-weight: 100;
   color: #ffffff;
+  line-height: 72px;
+  letter-spacing: -1%;
+  @media screen and (min-width: ${tabletWidth}) {
+    line-height: normal;
+    font-size: 72px;
+    letter-spacing: normal;
+  }
 `;
 const Bold = styled.span`
   font-weight: bold;
@@ -47,6 +67,10 @@ const Text = styled.p`
   color: #787878;
   position: relative;
   bottom: 8px;
+  line-height: 32px;
+  @media screen and (min-width: ${tabletWidth}) {
+    line-height: normal;
+  }
 `;
 const Button = styled.button`
   border-radius: 6px;
@@ -54,6 +78,14 @@ const Button = styled.button`
   background-color: transparent;
   padding: 16px 56px;
   color: #ffffff;
-  margin-top: 30px;
+  margin-top: 40px;
+  @media screen and (min-width: ${tabletWidth}) {
+    margin-top: 30px;
+  }
   /* 애니메이션 추가 */
+`;
+const Br = styled.br`
+  @media screen and (min-width: ${tabletWidth}) {
+    display: none;
+  }
 `;
