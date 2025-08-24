@@ -66,10 +66,10 @@ const Text = styled.p`
   font-size: 16px;
   color: #787878;
   position: relative;
-  bottom: 8px;
   line-height: 32px;
   @media screen and (min-width: ${tabletWidth}) {
     line-height: normal;
+    bottom: 8px;
   }
 `;
 const Button = styled.button`
