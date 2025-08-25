@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import playStation5DesktopImg from "../assets/images/playstation5desktop.svg";
-import playStation5Img from "../assets/images/playstation5.svg";
-import PlayStation5Description from "./PlayStation5Description.jsx";
-import useWindowWidth from "../lib/hooks/useWindowWidth.jsx";
+import playStation5DesktopImg from "@/assets/images/playstation5desktop.svg";
+import playStation5Img from "@/assets/images/playstation5.svg";
+import PlayStation5Description from "@/components/PlayStation5Description.jsx";
+import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 
 function PlayStation5Container() {
   const windowWidth = useWindowWidth();

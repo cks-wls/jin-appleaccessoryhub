@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import visionproDesktopImg from "../assets/images/visionprodesktop.svg";
-import visionproImg from "../assets/images/visionpro.svg";
-import VisionProDescription from "./VisionProDescription";
-import useWindowWidth from "../lib/hooks/useWindowWidth.jsx";
+import visionproDesktopImg from "@/assets/images/visionprodesktop.svg";
+import visionproImg from "@/assets/images/visionpro.svg";
+import VisionProDescription from "@/components/VisionProDescription";
+import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 
 function VisionProContainer() {
   const windowWidth = useWindowWidth();

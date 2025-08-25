@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import navImg from "../consts/navImg.jsx";
-import etcIcon from "../assets/icons/etc.svg";
+import navImg from "@/consts/navImg.jsx";
+import etcIcon from "@/assets/icons/etc.svg";
 
 export default function NavLinks() {
   return (

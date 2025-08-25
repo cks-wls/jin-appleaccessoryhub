@@ -1,7 +1,7 @@
-import clothImg from "../assets/images/cloth.svg";
-import electronicsImg from "../assets/images/electronics.svg";
-import furnitureImg from "../assets/images/furniture.svg";
-import shoesImg from "../assets/images/shoes.svg";
+import clothImg from "@/assets/images/cloth.svg";
+import electronicsImg from "@/assets/images/electronics.svg";
+import furnitureImg from "@/assets/images/furniture.svg";
+import shoesImg from "@/assets/images/shoes.svg";
 const bottomImg = [
   {
     url: clothImg,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import bottomadimgdesktop from "../assets/images/bottomadimgdesktop.png";
-import bottomadimg from "../assets/images/bottomadimg.png";
-import useWindowWidth from "../lib/hooks/useWindowWidth";
+import bottomadimgdesktop from "@/assets/images/bottomadimgdesktop.png";
+import bottomadimg from "@/assets/images/bottomadimg.png";
+import useWindowWidth from "@/lib/hooks/useWindowWidth";
 function BottomAdContainer() {
   const windowWidth = useWindowWidth();
   const url = windowWidth > 768 ? bottomadimgdesktop : bottomadimg;

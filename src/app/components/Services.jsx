@@ -1,4 +1,4 @@
-import servicesLi from "../consts/servicesLi";
+import servicesLi from "@/consts/servicesLi";
 export default function Services() {
   return (
     <>

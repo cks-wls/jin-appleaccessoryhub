@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import useWindowWidth from "../lib/hooks/useWindowWidth.jsx";
-import airpodsMaxDesktopImg from "../assets/images/airpodsmaxdesktop.svg";
-import airpodsMaxImg from "../assets/images/airpodsmax.svg";
-import AirpodsMaxDescription from "./AirpodsMaxDescription";
+import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
+import airpodsMaxDesktopImg from "@/assets/images/airpodsmaxdesktop.svg";
+import airpodsMaxImg from "@/assets/images/airpodsmax.svg";
+import AirpodsMaxDescription from "@/components/AirpodsMaxDescription";
 
 function AirpodsMaxContainer() {
   const windowWidth = useWindowWidth();
