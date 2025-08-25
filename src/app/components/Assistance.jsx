@@ -1,4 +1,4 @@
-import assistanceLi from "../consts/assitanceLi";
+import assistanceLi from "@/consts/assitanceLi";
 export default function Assistance() {
   return (
     <>

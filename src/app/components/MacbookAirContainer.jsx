@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import MacBookAirDescription from "./MacBookAirDescription.jsx";
-import macbookAirDesktopImg from "../assets/images/macbookairdesktop.svg";
-import macbookAirImg from "../assets/images/macbookair.svg";
+import MacBookAirDescription from "@/components/MacBookAirDescription.jsx";
+import macbookAirDesktopImg from "@/assets/images/macbookairdesktop.svg";
+import macbookAirImg from "@/assets/images/macbookair.svg";
 
 function MacbookAirContainer() {
   return (

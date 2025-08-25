@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bottomImg from "../consts/bottomImg";
+import bottomImg from "@/consts/bottomImg";
 function BottomProductContainer() {
   return (
     <Container>
@@ -8,6 +8,7 @@ function BottomProductContainer() {
           <BottomEachProductContainer
             $padding={val["padding"]}
             $backgroundColor={val["backgroundColor"]}
+            key={val.title}
           >
             <img src={val.url} alt={val.url} />
             <Title $color={val["color"] ?? "black"}>{val.title}</Title>

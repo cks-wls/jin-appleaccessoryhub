@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import SecondLeftAdContainer from "./SecondLeftAdContainer.jsx";
-import MacbookAirContainer from "./MacbookAirContainer.jsx";
+import SecondLeftAdContainer from "@/components/SecondLeftAdContainer.jsx";
+import MacbookAirContainer from "@/components/MacbookAirContainer.jsx";
 
 function SecondAdContainer() {
   return (

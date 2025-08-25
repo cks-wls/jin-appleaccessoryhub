@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Services from "./Services.jsx";
-import Assitnace from "./Assistance.jsx";
-import footerImg from "../consts/footerImg.jsx";
+import Services from "@/components/Services.jsx";
+import Assitnace from "@/components/Assistance.jsx";
+import footerImg from "@/consts/footerImg.jsx";
 
 export default function Footer() {
   return (

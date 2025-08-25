@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import AirpodsMaxContainer from "./AirpodsMaxContainer.jsx";
-import VisionProContainer from "./VisionProContainer.jsx";
+import AirpodsMaxContainer from "@/components/AirpodsMaxContainer.jsx";
+import VisionProContainer from "@/components/VisionProContainer.jsx";
 
 function AppleProductContainer() {
   return (
