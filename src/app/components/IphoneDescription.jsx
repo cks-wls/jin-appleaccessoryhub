@@ -12,7 +12,7 @@ function IphoneDescription() {
         Created to change everything for the <Br />
         better. For everyone
       </Mention>
-      <Button>Shop Now</Button>
+      <Button type="button">Shop Now</Button>
     </Container>
   );
 }

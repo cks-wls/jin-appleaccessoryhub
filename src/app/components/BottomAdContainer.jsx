@@ -17,7 +17,7 @@ function BottomAdContainer() {
           Commodo fames vitae vitae leo mauris in. Eu <Br />
           consequat.
         </Text>
-        <Button>Shop Now</Button>
+        <Button type="button">Shop Now</Button>
       </TextContainer>
     </Container>
   );

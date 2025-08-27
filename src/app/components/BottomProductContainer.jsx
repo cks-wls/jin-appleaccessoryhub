@@ -15,6 +15,7 @@ function BottomProductContainer() {
             <Button
               $color={val["color"] ?? "black"}
               $border={val["border"] ?? "1px solid black"}
+              type="button"
             >
               Shop Now
             </Button>
