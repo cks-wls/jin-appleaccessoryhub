@@ -34,7 +34,6 @@ export default function Footer() {
   );
 }
 const tabletScreen = "768px";
-const desktopScreen = "1025px";
 
 const FooterContainer = styled.footer`
   position: relative;

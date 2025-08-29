@@ -14,7 +14,7 @@ function MacBookAirDescription() {
         of what you love with a spacious <br /> Liquid Retina <Br />
         display.
       </Description>
-      <Button>Shop Now</Button>
+      <Button type="button">Shop Now</Button>
     </Container>
   );
 }
