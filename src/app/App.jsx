@@ -1,20 +1,25 @@
 import { createGlobalStyle } from "styled-components";
-import Header from "@/components/Header.jsx";
-import Footer from "@/components/Footer.jsx";
-import AdProductContainer from "@/components/AdProductContainer.jsx";
-import BottomProductContainer from "@/components/BottomProductContainer.jsx";
-import BottomAdContainer from "@/components/BottomAdContainer.jsx";
+import Header from "@/components/common/Header.jsx";
+import Footer from "@/components/common/Footer.jsx";
+import Main from "@/pages/main";
+import Like from "@/pages/like";
+import Cart from "@/pages/cart";
+import Profile from "@/pages/profile";
 import NotoSansWoff2 from "@/assets/fonts/NotoSans-Regular.woff2";
 import NotoSansWoff from "@/assets/fonts/NotoSans-Regular.woff";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <Header />
-      <AdProductContainer />
-      <BottomProductContainer />
-      <BottomAdContainer />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/like" element={<Like />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
       <Footer />
     </>
   );
