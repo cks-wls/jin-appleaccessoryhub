@@ -1,15 +1,23 @@
 import styled from "styled-components";
 import navImg from "@/consts/navImg.jsx";
 import etcIcon from "@/assets/icons/etc.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function NavLinks() {
+  const navigate = useNavigate();
   return (
     <NavLinksContainer>
       {navImg.map((val) => {
         const keys = Object.keys(val);
         const imgSrc = val[keys[0]];
-        console.log(imgSrc);
-        return <IconImg src={imgSrc} alt={keys[0]} key={keys[0]} />;
+        return (
+          <IconImg
+            src={imgSrc}
+            alt={keys[0]}
+            key={keys[0]}
+            onClick={() => navigate(`/${keys[0]}`)}
+          />
+        );
       })}
       <EtcIcon src={etcIcon} alt="Etc Icon" />
     </NavLinksContainer>
@@ -33,6 +41,7 @@ const IconImg = styled.img`
   width: 28px;
   height: 28px;
   display: none;
+  cursor: pointer;
   @media screen and (min-width: ${tabletWidth}) {
     display: block;
   }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MacBookAirDescription from "@/components/MacBookAirDescription.jsx";
+import MacBookAirDescription from "@/components/main/MacBookAirDescription.jsx";
 import macbookAirDesktopImg from "@/assets/images/macbookairdesktop.svg";
 import macbookAirImg from "@/assets/images/macbookair.svg";
 

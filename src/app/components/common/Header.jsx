@@ -1,12 +1,18 @@
 import styled from "styled-components";
-import SearchBar from "@/components/SearchBar.jsx";
-import NavLinks from "@/components/NavLinks.jsx";
+import { useNavigate } from "react-router-dom";
+import SearchBar from "@/components/common/SearchBar.jsx";
+import NavLinks from "@/components/common/NavLinks.jsx";
 import blackLogo from "@/assets/icons/blacklogo.svg";
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <>
       <Container>
-        <img src={blackLogo} alt="Apple Accessory Hub Logo" />
+        <Logo
+          src={blackLogo}
+          alt="Apple Accessory Hub Logo"
+          onClick={() => navigate("/")}
+        />
         <SearchBar />
         <NavLinks />
       </Container>
@@ -24,4 +30,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 10%;
+`;
+const Logo = styled.img`
+  cursor: pointer;
 `;

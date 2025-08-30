@@ -58,5 +58,6 @@ const Button = styled.button`
   color: ${(p) => p.$color};
   border: ${(p) => p.$border};
   background-color: transparent;
+  cursor: pointer;
   /* 애니메이션 추가 */
 `;

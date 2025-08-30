@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import IphoneDescription from "@/components/IphoneDescription.jsx";
+import IphoneDescription from "@/components/main/IphoneDescription.jsx";
 import iphoneImage from "@/assets/images/iphone14pro.svg";
 
 function Iphone() {
