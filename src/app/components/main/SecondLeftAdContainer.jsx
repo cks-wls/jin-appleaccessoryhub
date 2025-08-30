@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import PlayStation5Container from "@/components/PlayStation5Container.jsx";
-import AppleProductContainer from "@/components/AppleProductContainer.jsx";
+import PlayStation5Container from "@/components/main/PlayStation5Container.jsx";
+import AppleProductContainer from "@/components/main/AppleProductContainer.jsx";
 
 function SecondLeftAdContainer() {
   return (

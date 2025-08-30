@@ -78,6 +78,7 @@ const Button = styled.button`
   background-color: transparent;
   padding: 16px 56px;
   color: #ffffff;
+  cursor: pointer;
   margin-top: 40px;
   @media screen and (min-width: ${tabletWidth}) {
     margin-top: 30px;

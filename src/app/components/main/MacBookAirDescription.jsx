@@ -55,6 +55,7 @@ const Button = styled.button`
   border: 1px solid #000;
   border-radius: 6px;
   font-weight: 500;
+  cursor: pointer;
   /* animation추가하기 */
   @media screen and (min-width: ${desktopWidth}) {
     width: 191px;
