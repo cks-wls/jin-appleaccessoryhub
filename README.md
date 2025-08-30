@@ -12,11 +12,38 @@ app/
 │   ├── icons/
 │   ├── fonts/
 ├── components/       # 재사용 UI 컴포넌트
+│   ├── common/
+│   ├── main/
 ├── const/            # 전역 상수
 ├── lib/              # Api호출, 커스텀 훅
 │   ├── services/
 │   ├── hooks/
-├── route/            # 라우터, 페이지 관리
+├── pages/            # 페이지 관리
 └── index.jsx
 └── App.jsx
 ```
+
+---
+
+## 네이밍 컨벤션
+
+### 폴더명
+
+- **kebab-case**: `assets`, `components`, `pages`
+
+### 컴포넌트 파일명
+
+- **PascalCase**: `AdProductContainer.jsx`
+  - 단, 페이지 파일은 소문자로만 명명: `main.jsx`
+
+### 파일 내 변수 및 함수
+
+- **camelCase**: `desktopWidth`
+
+### 커스텀 훅
+
+- **use**로 시작: `useWindowWidth`
+
+### 상수
+
+- **camelCase**: `servicesLi`
