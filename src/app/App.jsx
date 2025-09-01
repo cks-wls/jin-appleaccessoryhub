@@ -5,6 +5,12 @@ import Main from "@/pages/main";
 import Like from "@/pages/like";
 import Cart from "@/pages/cart";
 import Profile from "@/pages/profile";
+import SmartPhone from "@/pages/smartPhone";
+import Watch from "@/pages/watch";
+import Tablet from "@/pages/tablet";
+import Laptop from "@/pages/laptop";
+import Accessory from "@/pages/accessory";
+import Grocery from "@/pages/grocery";
 import NotoSansWoff2 from "@/assets/fonts/NotoSans-Regular.woff2";
 import NotoSansWoff from "@/assets/fonts/NotoSans-Regular.woff";
 import { Routes, Route } from "react-router-dom";
@@ -19,6 +25,12 @@ function App() {
         <Route path="/like" element={<Like />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/product/smartphones" element={<SmartPhone />} />
+        <Route path="/product/watches" element={<Watch />} />
+        <Route path="/product/tablets" element={<Tablet />} />
+        <Route path="/product/laptops" element={<Laptop />} />
+        <Route path="/product/accessories" element={<Accessory />} />
+        <Route path="/product/groceries" element={<Grocery />} />
       </Routes>
       <Footer />
     </>
