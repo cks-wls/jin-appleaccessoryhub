@@ -25,12 +25,12 @@ function App() {
         <Route path="/like" element={<Like />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/product/smartphones" element={<SmartPhone />} />
-        <Route path="/product/watches" element={<Watch />} />
-        <Route path="/product/tablets" element={<Tablet />} />
-        <Route path="/product/laptops" element={<Laptop />} />
-        <Route path="/product/accessories" element={<Accessory />} />
-        <Route path="/product/groceries" element={<Grocery />} />
+        <Route path="/product/Smartphones" element={<SmartPhone />} />
+        <Route path="/product/Watches" element={<Watch />} />
+        <Route path="/product/Tablets" element={<Tablet />} />
+        <Route path="/product/Laptops" element={<Laptop />} />
+        <Route path="/product/Accessories" element={<Accessory />} />
+        <Route path="/product/Groceries" element={<Grocery />} />
       </Routes>
       <Footer />
     </>
