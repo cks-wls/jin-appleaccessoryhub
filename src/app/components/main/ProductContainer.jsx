@@ -51,10 +51,11 @@ function ProductContainer() {
 export default ProductContainer;
 
 const Container = styled.div`
-  width: 100%;
-  padding: 56px 130px;
+  padding: 56px 10.5%;
   display: flex;
   flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
   gap: 32px;
 `;
 const NameContainer = styled.div`
@@ -80,17 +81,20 @@ const MainContainer = styled.div`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* 이 부분도 categorySection과 같은 문제.. */
 `;
 const Item = styled.div`
   display: flex;
+  width: 283px;
   flex-direction: column;
   gap: 16px;
   align-items: center;
   justify-content: center;
-  padding: 24px 16px;
+  padding: 0 16px;
+  text-align: center;
   background-color: #f6f6f6;
   border-radius: 9px;
-  width: 268px;
   height: 432px;
 `;
 const Img = styled.img`

@@ -19,19 +19,23 @@ function CategorySection() {
     </Container>
   );
 }
-
 export default CategorySection;
+
 const Container = styled.div`
+  width: 80%;
+  margin: 0 auto;
   display: flex;
-  gap: 29px;
+  gap: 45px;
+  justify-content: space-around;
+  /* space-around를 사용하면 양끝 부터 정렬이 됩니다... 이거 다른 방법으로 해결하는 방안이 있을까요? */
   flex-wrap: wrap;
 `;
 const Section = styled.div`
-  padding: 24px 32px;
+  padding: 24px 0;
   width: 160px;
   height: 128px;
   background-color: #ededed;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   flex-direction: column;
   border-radius: 15px;

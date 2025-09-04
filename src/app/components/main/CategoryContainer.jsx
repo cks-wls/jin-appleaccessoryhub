@@ -3,8 +3,10 @@ import styled from "styled-components";
 function CategoryContainer() {
   return (
     <Container>
-      <Title>Browse By Category</Title>
-      <CategorySection />
+      <Inner>
+        <Title>Browse By Category</Title>
+        <CategorySection />
+      </Inner>
     </Container>
   );
 }
@@ -12,13 +14,15 @@ function CategoryContainer() {
 const Container = styled.div`
   width: 100%;
   background-color: #fafafa;
-  padding: 60px 160px;
+  padding: 60px 0;
+`;
+const Inner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
 `;
 const Title = styled.h3`
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 900;
 `;
 export default CategoryContainer;
