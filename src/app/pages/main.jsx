@@ -8,9 +8,9 @@ function Main() {
   return (
     <>
       <AdProductContainer />
-      <BottomProductContainer />
       <CategoryContainer />
       <ProductContainer />
+      <BottomProductContainer />
       <BottomAdContainer />
     </>
   );
