@@ -22,6 +22,8 @@ const Inner = styled.div`
   gap: 32px;
 `;
 const Title = styled.h3`
+  width: 80%;
+  margin: 0 auto;
   font-size: 24px;
   font-weight: 900;
 `;
