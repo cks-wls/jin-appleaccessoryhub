@@ -9,6 +9,7 @@ function Product() {
     Accessories: "mobile-accessories",
   };
   const categoryName = (CATEGORY_MAP[category] || category).toLowerCase();
+  // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
   useEffect(() => {
     categoryProduct({ category: categoryName }).then((data) => {
