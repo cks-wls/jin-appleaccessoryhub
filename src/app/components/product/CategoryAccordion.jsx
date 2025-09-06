@@ -3,6 +3,7 @@ import categoryName from "@/lib/api/categoryName";
 import { useEffect, useState } from "react";
 function CategoryAccordion() {
   const [category, setCategory] = useState([]);
+  const [check, setCheck] = useState();
   useEffect(() => {
     categoryName().then((data) => setCategory(data));
   }, []);
@@ -11,7 +12,13 @@ function CategoryAccordion() {
       {category.map((val) => {
         return (
           <ListContainer key={val}>
-            <List type="checkbox" id={val} />
+            <List
+              type="checkbox"
+              id={val}
+              onClick={() => setCheck(val)}
+              checked={check === val}
+              // checked를 이용해 check 와 val이 일치하는 경우의 체크박스에만 체크하기
+            />
             <Value for={val}>{val}</Value>
           </ListContainer>
         );
