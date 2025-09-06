@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import categoryProduct from "@/lib/api/categoryProduct";
+import CategoryAccordion from "@/components/product/CategoryAccordion";
+import arrow from "@/assets/icons/arrow.svg";
+import topArrow from "@/assets/icons/toparrow.svg";
 import styled from "styled-components";
 function Product() {
   const { category } = useParams();
@@ -8,6 +11,7 @@ function Product() {
     Watches: "mens-watches",
     Accessories: "mobile-accessories",
   };
+  const [modalOpen, setModalOpen] = useState(false);
   const categoryName = (CATEGORY_MAP[category] || category).toLowerCase();
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
@@ -26,7 +30,13 @@ function Product() {
         <CategoryName>{category}</CategoryName>
       </PageContainer>
       <Main>
-        <Category>Category</Category>
+        <Category>
+          <TitleSection onClick={() => setModalOpen((prev) => !prev)}>
+            <ModalTitle>Category</ModalTitle>
+            <ArrowImg src={modalOpen ? topArrow : arrow} />
+          </TitleSection>
+          <div>{modalOpen && <CategoryAccordion />}</div>
+        </Category>
         <ProductContainer>
           <CountContainer>
             <ProductCount>Select Products : </ProductCount>
@@ -76,8 +86,15 @@ const Main = styled.div`
   gap: 32px;
 `;
 const Category = styled.div`
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid #b5b5b5;
   height: 36px;
+  gap: 32px;
+`;
+const ModalTitle = styled.h3`
+  font-weight: bold;
+  font-size: 18px;
 `;
 const ProductContainer = styled.div`
   display: flex;
@@ -97,7 +114,6 @@ const CardContainer = styled.div`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 `;
 const Card = styled.div`
   display: flex;
@@ -131,4 +147,13 @@ const Button = styled.button`
   background-color: black;
   color: #ffffff;
   font-weight: bold;
+`;
+const ArrowImg = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+const TitleSection = styled.div`
+  display: flex;
+  cursor: pointer;
+  gap: 164px;
 `;
