@@ -2,10 +2,12 @@ import styled from "styled-components";
 import categoryName from "@/lib/api/categoryName";
 import categoryProduct from "@/lib/api/categoryProduct";
 import { useState, useEffect } from "react";
+import Skeleton from "@/components/common/Skeleton";
 function ProductContainer() {
   const [categoryList, setCategoryList] = useState([]);
   const [selectCategory, setSelectCategory] = useState("beauty");
   const [productInformation, setProductInformation] = useState([]);
+  const [imgLoading, setImgLoading] = useState(false);
   useEffect(() => {
     categoryName().then((data) => setCategoryList(data));
   }, []);
@@ -36,7 +38,12 @@ function ProductContainer() {
         {productInformation.map((val) => {
           return (
             <Item key={val.id}>
-              <Img src={val.images[0]} />
+              {!imgLoading && <Skeleton />}
+              <Img
+                src={val.images[0]}
+                onLoad={() => setImgLoading(true)}
+                style={{ display: imgLoading ? "block" : "none" }}
+              />
               <Title>{val.title}</Title>
               <Price>${val.price}</Price>
               <Button>Shop Now</Button>
