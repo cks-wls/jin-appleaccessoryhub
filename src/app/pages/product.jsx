@@ -5,7 +5,9 @@ import CategoryAccordion from "@/components/product/CategoryAccordion";
 import arrow from "@/assets/icons/arrow.svg";
 import topArrow from "@/assets/icons/toparrow.svg";
 import styled from "styled-components";
-import Skeleton from "@/components/common/Skeleton";
+import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
+import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
+import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
 function Product() {
   const { category } = useParams();
   const CATEGORY_MAP = {
@@ -48,15 +50,24 @@ function Product() {
             {product.map((val) => {
               return (
                 <Card key={val.title}>
-                  {!imgLoading && <Skeleton />}
+                  {!imgLoading && <ImgSkeleton />}
                   <Img
                     src={val.images[0]}
                     onLoad={() => setImgLoading(true)}
                     style={{ display: imgLoading ? "block" : "none" }}
                   />
-                  <Title>{val.title}</Title>
-                  <Price>{val.price}</Price>
-                  <Button>Shop Now</Button>
+                  {!imgLoading && <TitleSkeleton />}
+                  <Title style={{ display: imgLoading ? "block" : "none" }}>
+                    {val.title}
+                  </Title>
+                  {!imgLoading && <TitleSkeleton />}
+                  <Price style={{ display: imgLoading ? "block" : "none" }}>
+                    $ {val.price}
+                  </Price>
+                  {!imgLoading && <ButtonSkeleton />}
+                  <Button style={{ display: imgLoading ? "block" : "none" }}>
+                    Shop Now
+                  </Button>
                 </Card>
               );
             })}
@@ -124,21 +135,25 @@ const CardContainer = styled.div`
 `;
 const Card = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   background-color: #f6f6f6;
   gap: 16px;
-  padding: 24px 16px;
+  padding: 0 16px;
   border-radius: 9px;
   width: 266.33px;
+  height: 432px;
 `;
 const Img = styled.img`
   width: 160px;
   height: 160px;
+  margin-top: 72px;
 `;
 const Title = styled.p`
   font-weight: bold;
   font-size: 16px;
+  text-align: center;
 `;
 const Price = styled.h3`
   font-weight: 900;
@@ -146,9 +161,8 @@ const Price = styled.h3`
 `;
 const Button = styled.button`
   cursor: pointer;
-  margin-top: 8px;
-  position: relative;
-  top: 8px;
+  position: absolute;
+  bottom: 24px;
   padding: 12px 64px;
   border-radius: 8px;
   background-color: black;

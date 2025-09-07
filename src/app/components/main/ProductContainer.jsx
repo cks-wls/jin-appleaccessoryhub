@@ -2,7 +2,9 @@ import styled from "styled-components";
 import categoryName from "@/lib/api/categoryName";
 import categoryProduct from "@/lib/api/categoryProduct";
 import { useState, useEffect } from "react";
-import Skeleton from "@/components/common/Skeleton";
+import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
+import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
+import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
 function ProductContainer() {
   const [categoryList, setCategoryList] = useState([]);
   const [selectCategory, setSelectCategory] = useState("beauty");
@@ -39,15 +41,24 @@ function ProductContainer() {
         {productInformation.map((val) => {
           return (
             <Item key={val.id}>
-              {!imgLoading && <Skeleton />}
+              {!imgLoading && <ImgSkeleton />}
               <Img
                 src={val.images[0]}
                 onLoad={() => setImgLoading(true)}
                 style={{ display: imgLoading ? "block" : "none" }}
               />
-              <Title>{val.title}</Title>
-              <Price>${val.price}</Price>
-              <Button>Shop Now</Button>
+              {!imgLoading && <TitleSkeleton />}
+              <Title style={{ display: imgLoading ? "block" : "none" }}>
+                {val.title}
+              </Title>
+              {!imgLoading && <TitleSkeleton />}
+              <Price style={{ display: imgLoading ? "block" : "none" }}>
+                ${val.price}
+              </Price>
+              {!imgLoading && <ButtonSkeleton />}
+              <Button style={{ display: imgLoading ? "block" : "none" }}>
+                Shop Now
+              </Button>
             </Item>
           );
         })}
@@ -94,11 +105,11 @@ const MainContainer = styled.div`
 `;
 const Item = styled.div`
   display: flex;
+  position: relative;
   width: 283px;
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  justify-content: center;
   padding: 0 16px;
   text-align: center;
   background-color: #f6f6f6;
@@ -108,10 +119,12 @@ const Item = styled.div`
 const Img = styled.img`
   width: 160px;
   height: 160px;
+  margin-top: 72px;
 `;
 const Title = styled.p`
   font-weight: bold;
   font-size: 16px;
+  text-align: center;
 `;
 const Price = styled.h3`
   font-weight: 900;
@@ -119,8 +132,8 @@ const Price = styled.h3`
 `;
 const Button = styled.button`
   cursor: pointer;
-  position: relative;
-  top: 8px;
+  position: absolute;
+  bottom: 30px;
   padding: 12px 64px;
   border-radius: 8px;
   background-color: black;
