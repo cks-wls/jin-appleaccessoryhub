@@ -5,6 +5,7 @@ import CategoryAccordion from "@/components/product/CategoryAccordion";
 import arrow from "@/assets/icons/arrow.svg";
 import topArrow from "@/assets/icons/toparrow.svg";
 import styled from "styled-components";
+import Skeleton from "@/components/common/Skeleton";
 function Product() {
   const { category } = useParams();
   const CATEGORY_MAP = {
@@ -15,6 +16,7 @@ function Product() {
   const categoryName = (CATEGORY_MAP[category] || category).toLowerCase();
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
+  const [imgLoading, setImgLoading] = useState(false);
   useEffect(() => {
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
@@ -46,7 +48,12 @@ function Product() {
             {product.map((val) => {
               return (
                 <Card key={val.title}>
-                  <Img src={val.images[0]} />
+                  {!imgLoading && <Skeleton />}
+                  <Img
+                    src={val.images[0]}
+                    onLoad={() => setImgLoading(true)}
+                    style={{ display: imgLoading ? "block" : "none" }}
+                  />
                   <Title>{val.title}</Title>
                   <Price>{val.price}</Price>
                   <Button>Shop Now</Button>
