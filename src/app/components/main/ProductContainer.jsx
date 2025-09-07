@@ -12,6 +12,7 @@ function ProductContainer() {
     categoryName().then((data) => setCategoryList(data));
   }, []);
   useEffect(() => {
+    setImgLoading(false);
     categoryProduct({ category: selectCategory }).then((productData) => {
       setProductInformation(productData);
     });
