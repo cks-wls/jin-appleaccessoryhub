@@ -22,8 +22,9 @@ function Product() {
   useEffect(() => {
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
+      setImgLoading(false);
     });
-  }, []);
+  }, [categoryName]);
   return (
     <Container>
       <PageContainer>
@@ -106,8 +107,6 @@ const Main = styled.div`
 const Category = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #b5b5b5;
-  height: 36px;
   gap: 32px;
 `;
 const ModalTitle = styled.h3`
@@ -177,4 +176,6 @@ const TitleSection = styled.div`
   display: flex;
   cursor: pointer;
   gap: 164px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b5b5b5;
 `;
