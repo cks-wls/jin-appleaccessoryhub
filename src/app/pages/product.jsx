@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import categoryProduct from "@/lib/api/categoryProduct";
-import CategoryAccordion from "@/components/product/CategoryAccordion";
+import CategoryAccordion from "@/components/modal/CategoryAccordion";
 import arrow from "@/assets/icons/arrow.svg";
 import topArrow from "@/assets/icons/toparrow.svg";
 import styled from "styled-components";
