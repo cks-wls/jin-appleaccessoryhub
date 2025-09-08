@@ -81,6 +81,7 @@ function Product() {
 
 export default Product;
 
+const tabletWidth = "768px";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,9 +106,12 @@ const Main = styled.div`
   gap: 32px;
 `;
 const Category = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  display: none;
+  @media screen and (min-width: ${tabletWidth}) {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
 `;
 const ModalTitle = styled.h3`
   font-weight: bold;
