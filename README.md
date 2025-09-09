@@ -14,11 +14,18 @@ app/
 ├── components/       # 재사용 UI 컴포넌트
 │   ├── common/
 │   ├── main/
+│   ├── modal/
+│   ├── skeleton/
 ├── const/            # 전역 상수
 ├── lib/              # Api호출, 커스텀 훅
 │   ├── api/
 │   ├── hooks/
 ├── pages/            # 페이지 관리
+│   ├── cart/
+│   ├── like/
+│   ├── main/
+│   ├── product/
+│   ├── profile/
 └── index.jsx
 └── App.jsx
 ```
