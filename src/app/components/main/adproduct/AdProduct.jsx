@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import Iphone from "@/components/main/iphonepro14/Iphone.jsx";
-import SecondAdContainer from "@/components/main/adproduct/SecondAdContainer.jsx";
+import SecondAd from "@/components/main/adproduct/SecondAd.jsx";
 
-function AdProductContainer() {
+function AdProduct() {
   return (
     <>
       <Container>
         <Iphone />
-        <SecondAdContainer />
+        <SecondAd />
       </Container>
     </>
   );
 }
-export default AdProductContainer;
+export default AdProduct;
 
 const Container = styled.div`
   display: flex;

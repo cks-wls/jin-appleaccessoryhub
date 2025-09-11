@@ -4,7 +4,7 @@ import visionproImg from "@/assets/images/visionpro.svg";
 import VisionProDescription from "@/components/main/visionpro/VisionProDescription";
 import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 
-function VisionProContainer() {
+function VisionPro() {
   const windowWidth = useWindowWidth();
   const url = windowWidth >= 1025 ? visionproDesktopImg : visionproImg;
   return (
@@ -15,7 +15,7 @@ function VisionProContainer() {
   );
 }
 
-export default VisionProContainer;
+export default VisionPro;
 
 const desktopWidth = "1025px";
 const Container = styled.div`

@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import SecondLeftAdContainer from "@/components/main/adproduct/SecondLeftAdContainer.jsx";
-import MacbookAirContainer from "@/components/main/macbookair/MacbookAirContainer.jsx";
+import SecondLeftAd from "@/components/main/adproduct/SecondLeftAd.jsx";
+import MacbookAir from "@/components/main/macbookair/MacbookAir.jsx";
 
-function SecondAdContainer() {
+function SecondAd() {
   return (
     <Container>
-      <SecondLeftAdContainer />
-      <MacbookAirContainer />
+      <SecondLeftAd />
+      <MacbookAir />
     </Container>
   );
 }
-export default SecondAdContainer;
+export default SecondAd;
 
 const desktopWidth = "1025px";
 const Container = styled.div`

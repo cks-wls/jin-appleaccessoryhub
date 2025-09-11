@@ -1,6 +1,6 @@
 import CategorySection from "@/components/main/category/CategorySection";
 import styled from "styled-components";
-function CategoryContainer() {
+function Category() {
   return (
     <Container>
       <Inner>
@@ -10,7 +10,7 @@ function CategoryContainer() {
     </Container>
   );
 }
-
+export default Category;
 const Container = styled.div`
   width: 100%;
   background-color: #fafafa;
@@ -27,4 +27,3 @@ const Title = styled.h3`
   font-size: 24px;
   font-weight: 900;
 `;
-export default CategoryContainer;
