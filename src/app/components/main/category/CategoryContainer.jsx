@@ -1,4 +1,4 @@
-import CategorySection from "@/components/main/CategorySection";
+import CategorySection from "@/components/main/category/CategorySection";
 import styled from "styled-components";
 function CategoryContainer() {
   return (

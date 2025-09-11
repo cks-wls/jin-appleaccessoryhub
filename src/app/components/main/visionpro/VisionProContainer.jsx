@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import visionproDesktopImg from "@/assets/images/visionprodesktop.svg";
 import visionproImg from "@/assets/images/visionpro.svg";
-import VisionProDescription from "@/components/main/VisionProDescription";
+import VisionProDescription from "@/components/main/visionpro/VisionProDescription";
 import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 
 function VisionProContainer() {

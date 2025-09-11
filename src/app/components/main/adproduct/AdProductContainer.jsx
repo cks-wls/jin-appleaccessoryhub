@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Iphone from "@/components/main/Iphone.jsx";
-import SecondAdContainer from "@/components/main/SecondAdContainer.jsx";
+import Iphone from "@/components/main/iphonepro14/Iphone.jsx";
+import SecondAdContainer from "@/components/main/adproduct/SecondAdContainer.jsx";
 
 function AdProductContainer() {
   return (
