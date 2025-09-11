@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import categoryName from "@/lib/api/categoryName";
-import categoryProduct from "@/lib/api/categoryProduct";
+import categoryName from "@/lib/query/categoryName";
+import categoryProduct from "@/lib/query/categoryProduct";
 import { useState, useEffect } from "react";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
