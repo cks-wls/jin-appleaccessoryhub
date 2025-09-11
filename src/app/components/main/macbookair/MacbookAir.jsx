@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import MacBookAirDescription from "@/components/main/MacBookAirDescription.jsx";
+import MacBookAirDescription from "@/components/main/macbookair/MacBookAirDescription.jsx";
 import macbookAirDesktopImg from "@/assets/images/macbookairdesktop.svg";
 import macbookAirImg from "@/assets/images/macbookair.svg";
 
-function MacbookAirContainer() {
+function MacbookAir() {
   return (
     <Container>
       <MacBookAirPhoneImg src={macbookAirImg} alt="MacBook Air" />
@@ -13,7 +13,7 @@ function MacbookAirContainer() {
   );
 }
 
-export default MacbookAirContainer;
+export default MacbookAir;
 
 const desktopWidth = "1025px";
 

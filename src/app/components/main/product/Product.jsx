@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
-function ProductContainer() {
+function Product() {
   const [categoryList, setCategoryList] = useState([]);
   const [selectCategory, setSelectCategory] = useState("beauty");
   const [productInformation, setProductInformation] = useState([]);
@@ -67,7 +67,7 @@ function ProductContainer() {
   );
 }
 
-export default ProductContainer;
+export default Product;
 
 const Container = styled.div`
   padding: 56px 10.5%;
