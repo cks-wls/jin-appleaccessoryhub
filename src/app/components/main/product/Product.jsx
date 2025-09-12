@@ -6,8 +6,9 @@ import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
 function Product() {
+  const defaultCategory = "beauty";
   const [categoryList, setCategoryList] = useState([]);
-  const [selectCategory, setSelectCategory] = useState("beauty");
+  const [selectCategory, setSelectCategory] = useState(defaultCategory);
   const [productInformation, setProductInformation] = useState([]);
   const [imgLoading, setImgLoading] = useState(false);
   useEffect(() => {
