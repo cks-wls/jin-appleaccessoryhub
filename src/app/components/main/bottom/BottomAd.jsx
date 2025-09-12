@@ -2,7 +2,7 @@ import styled from "styled-components";
 import bottomadimgdesktop from "@/assets/images/bottomadimgdesktop.png";
 import bottomadimg from "@/assets/images/bottomadimg.png";
 import useWindowWidth from "@/lib/hooks/useWindowWidth";
-function BottomAdContainer() {
+function BottomAd() {
   const windowWidth = useWindowWidth();
   const url = windowWidth > 768 ? bottomadimgdesktop : bottomadimg;
   return (
@@ -22,7 +22,7 @@ function BottomAdContainer() {
     </Container>
   );
 }
-export default BottomAdContainer;
+export default BottomAd;
 
 const tabletWidth = "768px";
 const Container = styled.div`

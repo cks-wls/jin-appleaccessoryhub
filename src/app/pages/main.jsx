@@ -1,17 +1,17 @@
-import AdProductContainer from "@/components/main/AdProductContainer";
-import BottomProductContainer from "@/components/main/BottomProductContainer";
-import BottomAdContainer from "@/components/main/BottomAdContainer";
-import CategoryContainer from "@/components/main/CategoryContainer";
-import ProductContainer from "@/components/main/ProductContainer";
+import AdProduct from "@/components/main/adproduct/AdProduct";
+import BottomProduct from "@/components/main/bottom/BottomProduct";
+import BottomAd from "@/components/main/bottom/BottomAd";
+import Category from "@/components/main/category/Category";
+import Product from "@/components/main/product/Product";
 
 function Main() {
   return (
     <>
-      <AdProductContainer />
-      <CategoryContainer />
-      <ProductContainer />
-      <BottomProductContainer />
-      <BottomAdContainer />
+      <AdProduct />
+      <Category />
+      <Product />
+      <BottomProduct />
+      <BottomAd />
     </>
   );
 }

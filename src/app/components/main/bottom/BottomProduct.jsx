@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import bottomImg from "@/consts/bottomImg";
-function BottomProductContainer() {
+function BottomProduct() {
   return (
     <Container>
       {bottomImg.map((val) => {
@@ -26,7 +26,7 @@ function BottomProductContainer() {
   );
 }
 
-export default BottomProductContainer;
+export default BottomProduct;
 
 const desktopWidth = "1025px";
 const Container = styled.div`

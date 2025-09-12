@@ -1,13 +1,16 @@
 import styled from "styled-components";
-import categoryName from "@/lib/api/categoryName";
-import { useEffect, useState } from "react";
+import categoryName from "@/lib/query/categoryName";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 function CategoryAccordion() {
   const [category, setCategory] = useState([]);
   const { category: productVarious } = useParams();
   const [check, setCheck] = useState(productVarious);
   const navigate = useNavigate();
+  const modalRef = useRef(false);
   useEffect(() => {
+    if (modalRef.current) return;
+    modalRef.current = true;
     categoryName().then((data) => setCategory(data));
   }, []);
   useEffect(() => {
@@ -15,23 +18,21 @@ function CategoryAccordion() {
   }, [productVarious]);
   return (
     <Container>
-      {category.map((val) => {
-        return (
-          <ListContainer key={val}>
-            <List
-              type="checkbox"
-              id={val}
-              onChange={() => {
-                setCheck(val);
-                navigate(`/product/${val}`);
-              }}
-              checked={check.toLowerCase() === val}
-              // checked를 이용해 check 와 val이 일치하는 경우의 체크박스에만 체크하기
-            />
-            <Value htmlFor={val}>{val}</Value>
-          </ListContainer>
-        );
-      })}
+      {category.map((val) => (
+        <ListContainer key={val}>
+          <List
+            type="checkbox"
+            id={val}
+            onChange={() => {
+              setCheck(val);
+              navigate(`/product/${val}`);
+            }}
+            checked={check.toLowerCase() === val}
+            // checked를 이용해 check 와 val이 일치하는 경우의 체크박스에만 체크하기
+          />
+          <Value htmlFor={val}>{val}</Value>
+        </ListContainer>
+      ))}
     </Container>
   );
 }

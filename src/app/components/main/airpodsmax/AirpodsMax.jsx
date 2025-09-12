@@ -2,9 +2,9 @@ import styled from "styled-components";
 import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 import airpodsMaxDesktopImg from "@/assets/images/airpodsmaxdesktop.svg";
 import airpodsMaxImg from "@/assets/images/airpodsmax.svg";
-import AirpodsMaxDescription from "@/components/main/AirpodsMaxDescription";
+import AirpodsMaxDescription from "@/components/main/airpodsmax/AirpodsMaxDescription";
 
-function AirpodsMaxContainer() {
+function AirpodsMax() {
   const windowWidth = useWindowWidth();
   const url = windowWidth >= 1025 ? airpodsMaxDesktopImg : airpodsMaxImg;
   return (
@@ -15,7 +15,7 @@ function AirpodsMaxContainer() {
   );
 }
 
-export default AirpodsMaxContainer;
+export default AirpodsMax;
 
 const desktopWidth = "1025px";
 const Container = styled.div`

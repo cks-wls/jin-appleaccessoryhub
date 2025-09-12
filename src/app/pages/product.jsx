@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import categoryProduct from "@/lib/api/categoryProduct";
+import categoryProduct from "@/lib/query/categoryProduct";
 import CategoryAccordion from "@/components/modal/CategoryAccordion";
 import arrow from "@/assets/icons/arrow.svg";
 import topArrow from "@/assets/icons/toparrow.svg";
@@ -8,6 +8,7 @@ import styled from "styled-components";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
+import PriceSkeleton from "@/components/skeleton/PriceSkeleton";
 function Product() {
   const { category } = useParams();
   const CATEGORY_MAP = {
@@ -18,11 +19,18 @@ function Product() {
   const categoryName = (CATEGORY_MAP[category] || category).toLowerCase();
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
-  const [imgLoading, setImgLoading] = useState(false);
+  const [imgLoading, setImgLoading] = useState({});
+  const categoryRef = useRef("");
   useEffect(() => {
+    if (categoryRef.current === categoryName) return;
+    categoryRef.current = categoryName;
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
-      setImgLoading(false);
+      const initialLoading = {};
+      data.forEach((val) => {
+        initialLoading[val.id] = false;
+      });
+      setImgLoading(initialLoading);
     });
   }, [categoryName]);
   return (
@@ -48,30 +56,47 @@ function Product() {
             <Length>{product.length}</Length>
           </CountContainer>
           <CardContainer>
-            {product.map((val) => {
-              return (
-                <Card key={val.title}>
-                  {!imgLoading && <ImgSkeleton />}
+            {product.map((val) => (
+              <Card key={val.title}>
+                <div style={{ position: "relative" }}>
+                  {/* 이미지 */}
                   <Img
                     src={val.images[0]}
-                    onLoad={() => setImgLoading(true)}
-                    style={{ display: imgLoading ? "block" : "none" }}
+                    onLoad={() =>
+                      setImgLoading((prev) => ({ ...prev, [val.id]: true }))
+                    }
+                    style={{ opacity: imgLoading[val.id] ? 1 : 0 }}
                   />
-                  {!imgLoading && <TitleSkeleton />}
-                  <Title style={{ display: imgLoading ? "block" : "none" }}>
-                    {val.title}
-                  </Title>
-                  {!imgLoading && <TitleSkeleton />}
-                  <Price style={{ display: imgLoading ? "block" : "none" }}>
-                    $ {val.price}
-                  </Price>
-                  {!imgLoading && <ButtonSkeleton />}
-                  <Button style={{ display: imgLoading ? "block" : "none" }}>
-                    Shop Now
-                  </Button>
-                </Card>
-              );
-            })}
+                  {/* 스켈레톤 */}
+                  {!imgLoading[val.id] && (
+                    <div style={{ position: "absolute", top: 0, left: 0 }}>
+                      <ImgSkeleton />
+                    </div>
+                  )}
+                </div>
+
+                {/* 타이틀 */}
+                {!imgLoading[val.id] ? (
+                  <TitleSkeleton />
+                ) : (
+                  <Title>{val.title}</Title>
+                )}
+
+                {/* 가격 */}
+                {!imgLoading[val.id] ? (
+                  <PriceSkeleton />
+                ) : (
+                  <Price>${val.price}</Price>
+                )}
+
+                {/* 버튼 */}
+                {!imgLoading[val.id] ? (
+                  <ButtonSkeleton />
+                ) : (
+                  <Button>Shop Now</Button>
+                )}
+              </Card>
+            ))}
           </CardContainer>
         </ProductContainer>
       </Main>

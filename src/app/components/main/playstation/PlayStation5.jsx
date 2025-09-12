@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import playStation5DesktopImg from "@/assets/images/playstation5desktop.svg";
 import playStation5Img from "@/assets/images/playstation5.svg";
-import PlayStation5Description from "@/components/main/PlayStation5Description.jsx";
+import PlayStation5Description from "@/components/main/playstation/PlayStation5Description.jsx";
 import useWindowWidth from "@/lib/hooks/useWindowWidth.jsx";
 
-function PlayStation5Container() {
+function PlayStation5() {
   const windowWidth = useWindowWidth();
   const url = windowWidth >= 1025 ? playStation5DesktopImg : playStation5Img;
   return (
@@ -15,7 +15,7 @@ function PlayStation5Container() {
   );
 }
 
-export default PlayStation5Container;
+export default PlayStation5;
 
 const desktopWidth = "1025px";
 
