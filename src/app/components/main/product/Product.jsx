@@ -31,6 +31,13 @@ function Product() {
       const initialLoading = {};
       productData.forEach((val) => {
         initialLoading[val.id] = false;
+
+        // JS Image 객체로 로딩 체크
+        const img = new Image();
+        img.src = val.images[0];
+        img.onload = () => {
+          setImgLoading((prev) => ({ ...prev, [val.id]: true }));
+        };
       });
       setImgLoading(initialLoading);
     });
