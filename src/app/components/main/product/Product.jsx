@@ -5,58 +5,96 @@ import { useState, useEffect } from "react";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
+import PriceSkeleton from "@/components/skeleton/PriceSkeleton";
+import CategorySkeleton from "@/components/skeleton/CategorySkeleton";
 function Product() {
   const defaultCategory = "beauty";
   const [categoryList, setCategoryList] = useState([]);
   const [selectCategory, setSelectCategory] = useState(defaultCategory);
   const [productInformation, setProductInformation] = useState([]);
-  const [imgLoading, setImgLoading] = useState(false);
+  const [categoryLoading, setCategoryLoading] = useState([]);
+  const [imgLoading, setImgLoading] = useState({});
   useEffect(() => {
-    categoryName().then((data) => setCategoryList(data));
+    setCategoryLoading([]);
+    categoryName()
+      .then((data) => {
+        setCategoryList(data);
+        setCategoryLoading(data.map(() => "true"));
+      })
+      .catch(() => {
+        setCategoryLoading(categoryList.map(() => "false"));
+      });
   }, []);
   useEffect(() => {
-    setImgLoading(false);
     categoryProduct({ category: selectCategory }).then((productData) => {
       setProductInformation(productData);
+      const initialLoading = {};
+      productData.forEach((val) => {
+        initialLoading[val.id] = false;
+      });
+      setImgLoading(initialLoading);
     });
   }, [selectCategory]);
   //  selectCategory 바뀔때마다 useEffect 실행
   return (
     <Container>
       <NameContainer>
-        {categoryList.map((val) => (
-          <CategoryName
-            key={val}
-            onClick={() => {
-              setSelectCategory(val);
-            }}
-            $chooseName={selectCategory}
-          >
-            {val}
-          </CategoryName>
-        ))}
+        {categoryList.length === 0 || categoryLoading.includes("false") ? (
+          <CategorySkeleton />
+        ) : (
+          categoryList.map((val) => (
+            <CategoryName
+              key={val}
+              onClick={() => {
+                setSelectCategory(val);
+              }}
+              $chooseName={selectCategory}
+            >
+              {val}
+            </CategoryName>
+          ))
+        )}
       </NameContainer>
       <MainContainer>
         {productInformation.map((val) => (
           <Item key={val.id}>
-            {!imgLoading && <ImgSkeleton />}
-            <Img
-              src={val.images[0]}
-              onLoad={() => setImgLoading(true)}
-              style={{ display: imgLoading ? "block" : "none" }}
-            />
-            {!imgLoading && <TitleSkeleton />}
-            <Title style={{ display: imgLoading ? "block" : "none" }}>
-              {val.title}
-            </Title>
-            {!imgLoading && <TitleSkeleton />}
-            <Price style={{ display: imgLoading ? "block" : "none" }}>
-              ${val.price}
-            </Price>
-            {!imgLoading && <ButtonSkeleton />}
-            <Button style={{ display: imgLoading ? "block" : "none" }}>
-              Shop Now
-            </Button>
+            <div style={{ position: "relative" }}>
+              {/* 이미지 */}
+              <Img
+                src={val.images[0]}
+                onLoad={() =>
+                  setImgLoading((prev) => ({ ...prev, [val.id]: true }))
+                }
+                style={{ opacity: imgLoading[val.id] ? 1 : 0 }}
+              />
+              {/* 스켈레톤 */}
+              {!imgLoading[val.id] && (
+                <div style={{ position: "absolute", top: 0, left: 0 }}>
+                  <ImgSkeleton />
+                </div>
+              )}
+            </div>
+
+            {/* 타이틀 */}
+            {!imgLoading[val.id] ? (
+              <TitleSkeleton />
+            ) : (
+              <Title>{val.title}</Title>
+            )}
+
+            {/* 가격 */}
+            {!imgLoading[val.id] ? (
+              <PriceSkeleton />
+            ) : (
+              <Price>${val.price}</Price>
+            )}
+
+            {/* 버튼 */}
+            {!imgLoading[val.id] ? (
+              <ButtonSkeleton />
+            ) : (
+              <Button>Shop Now</Button>
+            )}
           </Item>
         ))}
       </MainContainer>

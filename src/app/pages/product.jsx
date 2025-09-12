@@ -8,6 +8,7 @@ import styled from "styled-components";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
+import PriceSkeleton from "@/components/skeleton/PriceSkeleton";
 function Product() {
   const { category } = useParams();
   const CATEGORY_MAP = {
@@ -18,11 +19,15 @@ function Product() {
   const categoryName = (CATEGORY_MAP[category] || category).toLowerCase();
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
-  const [imgLoading, setImgLoading] = useState(false);
+  const [imgLoading, setImgLoading] = useState({});
   useEffect(() => {
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
-      setImgLoading(false);
+      const initialLoading = {};
+      data.forEach((val) => {
+        initialLoading[val.id] = false;
+      });
+      setImgLoading(initialLoading);
     });
   }, [categoryName]);
   return (
@@ -50,24 +55,43 @@ function Product() {
           <CardContainer>
             {product.map((val) => (
               <Card key={val.title}>
-                {!imgLoading && <ImgSkeleton />}
-                <Img
-                  src={val.images[0]}
-                  onLoad={() => setImgLoading(true)}
-                  style={{ display: imgLoading ? "block" : "none" }}
-                />
-                {!imgLoading && <TitleSkeleton />}
-                <Title style={{ display: imgLoading ? "block" : "none" }}>
-                  {val.title}
-                </Title>
-                {!imgLoading && <TitleSkeleton />}
-                <Price style={{ display: imgLoading ? "block" : "none" }}>
-                  $ {val.price}
-                </Price>
-                {!imgLoading && <ButtonSkeleton />}
-                <Button style={{ display: imgLoading ? "block" : "none" }}>
-                  Shop Now
-                </Button>
+                <div style={{ position: "relative" }}>
+                  {/* 이미지 */}
+                  <Img
+                    src={val.images[0]}
+                    onLoad={() =>
+                      setImgLoading((prev) => ({ ...prev, [val.id]: true }))
+                    }
+                    style={{ opacity: imgLoading[val.id] ? 1 : 0 }}
+                  />
+                  {/* 스켈레톤 */}
+                  {!imgLoading[val.id] && (
+                    <div style={{ position: "absolute", top: 0, left: 0 }}>
+                      <ImgSkeleton />
+                    </div>
+                  )}
+                </div>
+
+                {/* 타이틀 */}
+                {!imgLoading[val.id] ? (
+                  <TitleSkeleton />
+                ) : (
+                  <Title>{val.title}</Title>
+                )}
+
+                {/* 가격 */}
+                {!imgLoading[val.id] ? (
+                  <PriceSkeleton />
+                ) : (
+                  <Price>${val.price}</Price>
+                )}
+
+                {/* 버튼 */}
+                {!imgLoading[val.id] ? (
+                  <ButtonSkeleton />
+                ) : (
+                  <Button>Shop Now</Button>
+                )}
               </Card>
             ))}
           </CardContainer>
