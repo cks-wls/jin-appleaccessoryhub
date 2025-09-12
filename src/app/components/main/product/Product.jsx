@@ -15,7 +15,7 @@ function Product() {
   const [categoryLoading, setCategoryLoading] = useState([]);
   const [imgLoading, setImgLoading] = useState({});
   const categoryRef = useRef(false);
-  const productRef = useRef(false);
+  const productRef = useRef("");
   useEffect(() => {
     if (categoryRef.current) return;
     categoryRef.current = true;
@@ -30,8 +30,8 @@ function Product() {
       });
   }, []);
   useEffect(() => {
-    if (productRef.current) return;
-    productRef.current = true;
+    if (productRef.current === selectCategory) return;
+    productRef.current = selectCategory;
     categoryProduct({ category: selectCategory }).then((productData) => {
       setProductInformation(productData);
       const initialLoading = {};

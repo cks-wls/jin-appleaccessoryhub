@@ -20,10 +20,10 @@ function Product() {
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
   const [imgLoading, setImgLoading] = useState({});
-  const categoryRef = useRef(false);
+  const categoryRef = useRef("");
   useEffect(() => {
-    if (categoryRef.current) return;
-    categoryRef.current = true;
+    if (categoryRef.current === categoryName) return;
+    categoryRef.current = categoryName;
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
       const initialLoading = {};
