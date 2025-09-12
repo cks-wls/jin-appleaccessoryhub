@@ -23,45 +23,41 @@ function Product() {
   return (
     <Container>
       <NameContainer>
-        {categoryList.map((val) => {
-          return (
-            <CategoryName
-              key={val}
-              onClick={() => {
-                setSelectCategory(val);
-              }}
-              $chooseName={selectCategory}
-            >
-              {val}
-            </CategoryName>
-          );
-        })}
+        {categoryList.map((val) => (
+          <CategoryName
+            key={val}
+            onClick={() => {
+              setSelectCategory(val);
+            }}
+            $chooseName={selectCategory}
+          >
+            {val}
+          </CategoryName>
+        ))}
       </NameContainer>
       <MainContainer>
-        {productInformation.map((val) => {
-          return (
-            <Item key={val.id}>
-              {!imgLoading && <ImgSkeleton />}
-              <Img
-                src={val.images[0]}
-                onLoad={() => setImgLoading(true)}
-                style={{ display: imgLoading ? "block" : "none" }}
-              />
-              {!imgLoading && <TitleSkeleton />}
-              <Title style={{ display: imgLoading ? "block" : "none" }}>
-                {val.title}
-              </Title>
-              {!imgLoading && <TitleSkeleton />}
-              <Price style={{ display: imgLoading ? "block" : "none" }}>
-                ${val.price}
-              </Price>
-              {!imgLoading && <ButtonSkeleton />}
-              <Button style={{ display: imgLoading ? "block" : "none" }}>
-                Shop Now
-              </Button>
-            </Item>
-          );
-        })}
+        {productInformation.map((val) => (
+          <Item key={val.id}>
+            {!imgLoading && <ImgSkeleton />}
+            <Img
+              src={val.images[0]}
+              onLoad={() => setImgLoading(true)}
+              style={{ display: imgLoading ? "block" : "none" }}
+            />
+            {!imgLoading && <TitleSkeleton />}
+            <Title style={{ display: imgLoading ? "block" : "none" }}>
+              {val.title}
+            </Title>
+            {!imgLoading && <TitleSkeleton />}
+            <Price style={{ display: imgLoading ? "block" : "none" }}>
+              ${val.price}
+            </Price>
+            {!imgLoading && <ButtonSkeleton />}
+            <Button style={{ display: imgLoading ? "block" : "none" }}>
+              Shop Now
+            </Button>
+          </Item>
+        ))}
       </MainContainer>
     </Container>
   );

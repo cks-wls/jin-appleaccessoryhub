@@ -48,30 +48,28 @@ function Product() {
             <Length>{product.length}</Length>
           </CountContainer>
           <CardContainer>
-            {product.map((val) => {
-              return (
-                <Card key={val.title}>
-                  {!imgLoading && <ImgSkeleton />}
-                  <Img
-                    src={val.images[0]}
-                    onLoad={() => setImgLoading(true)}
-                    style={{ display: imgLoading ? "block" : "none" }}
-                  />
-                  {!imgLoading && <TitleSkeleton />}
-                  <Title style={{ display: imgLoading ? "block" : "none" }}>
-                    {val.title}
-                  </Title>
-                  {!imgLoading && <TitleSkeleton />}
-                  <Price style={{ display: imgLoading ? "block" : "none" }}>
-                    $ {val.price}
-                  </Price>
-                  {!imgLoading && <ButtonSkeleton />}
-                  <Button style={{ display: imgLoading ? "block" : "none" }}>
-                    Shop Now
-                  </Button>
-                </Card>
-              );
-            })}
+            {product.map((val) => (
+              <Card key={val.title}>
+                {!imgLoading && <ImgSkeleton />}
+                <Img
+                  src={val.images[0]}
+                  onLoad={() => setImgLoading(true)}
+                  style={{ display: imgLoading ? "block" : "none" }}
+                />
+                {!imgLoading && <TitleSkeleton />}
+                <Title style={{ display: imgLoading ? "block" : "none" }}>
+                  {val.title}
+                </Title>
+                {!imgLoading && <TitleSkeleton />}
+                <Price style={{ display: imgLoading ? "block" : "none" }}>
+                  $ {val.price}
+                </Price>
+                {!imgLoading && <ButtonSkeleton />}
+                <Button style={{ display: imgLoading ? "block" : "none" }}>
+                  Shop Now
+                </Button>
+              </Card>
+            ))}
           </CardContainer>
         </ProductContainer>
       </Main>
