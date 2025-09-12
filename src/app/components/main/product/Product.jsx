@@ -38,6 +38,7 @@ function Product() {
         img.onload = () => {
           setImgLoading((prev) => ({ ...prev, [val.id]: true }));
         };
+        // 초기 렌더링시 beauty 상품에 해당하는 것은 스켈레톤만 나와 위와 같이 해결
       });
       setImgLoading(initialLoading);
     });
