@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import categoryProduct from "@/lib/query/categoryProduct";
 import CategoryAccordion from "@/components/modal/CategoryAccordion";
@@ -20,7 +20,10 @@ function Product() {
   // watches, accessories일때 다르게 처리함
   const [product, setProduct] = useState([]);
   const [imgLoading, setImgLoading] = useState({});
+  const categoryRef = useRef(false);
   useEffect(() => {
+    if (categoryRef.current) return;
+    categoryRef.current = true;
     categoryProduct({ category: categoryName }).then((data) => {
       setProduct(data);
       const initialLoading = {};

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import categoryName from "@/lib/query/categoryName";
 import categoryProduct from "@/lib/query/categoryProduct";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ImgSkeleton from "@/components/skeleton/ImgSkeleton";
 import TitleSkeleton from "@/components/skeleton/TitleSkeleton";
 import ButtonSkeleton from "@/components/skeleton/ButtonSkeleton";
@@ -14,7 +14,11 @@ function Product() {
   const [productInformation, setProductInformation] = useState([]);
   const [categoryLoading, setCategoryLoading] = useState([]);
   const [imgLoading, setImgLoading] = useState({});
+  const categoryRef = useRef(false);
+  const productRef = useRef(false);
   useEffect(() => {
+    if (categoryRef.current) return;
+    categoryRef.current = true;
     setCategoryLoading([]);
     categoryName()
       .then((data) => {
@@ -26,6 +30,8 @@ function Product() {
       });
   }, []);
   useEffect(() => {
+    if (productRef.current) return;
+    productRef.current = true;
     categoryProduct({ category: selectCategory }).then((productData) => {
       setProductInformation(productData);
       const initialLoading = {};

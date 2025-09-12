@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import categoryName from "@/lib/query/categoryName";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 function CategoryAccordion() {
   const [category, setCategory] = useState([]);
   const { category: productVarious } = useParams();
   const [check, setCheck] = useState(productVarious);
   const navigate = useNavigate();
+  const modalRef = useRef(false);
   useEffect(() => {
+    if (modalRef.current) return;
+    modalRef.current = true;
     categoryName().then((data) => setCategory(data));
   }, []);
   useEffect(() => {
