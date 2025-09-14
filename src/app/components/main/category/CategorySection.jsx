@@ -26,9 +26,12 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   gap: 45px;
-  justify-content: space-around;
-  /* space-around를 사용하면 양끝 부터 정렬이 됩니다... 이거 다른 방법으로 해결하는 방안이 있을까요? */
   flex-wrap: wrap;
+  justify-content: space-around;
+  &::after {
+    content: "";
+    flex: 1 1 160px;
+  }
 `;
 const Section = styled.div`
   padding: 24px 0;

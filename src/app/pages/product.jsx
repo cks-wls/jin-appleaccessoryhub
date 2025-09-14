@@ -160,6 +160,11 @@ const CardContainer = styled.div`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: space-around;
+  &::after {
+    content: "";
+    flex: 0 1 266.33px;
+  }
 `;
 const Card = styled.div`
   display: flex;
