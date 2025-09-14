@@ -149,8 +149,11 @@ const MainContainer = styled.div`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  /* 이 부분도 categorySection과 같은 문제.. */
+  justify-content: space-around;
+  &::after {
+    content: "";
+    flex: 0 1 283px;
+  }
 `;
 const Item = styled.div`
   display: flex;
