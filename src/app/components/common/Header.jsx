@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import SearchBar from "@/components/common/SearchBar.jsx";
 import NavLinks from "@/components/common/NavLinks.jsx";
 import blackLogo from "@/assets/icons/blacklogo.svg";
+import NavbarModal from "@/components/modal/NavbarModal";
+import { useState } from "react";
 export default function Header() {
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   return (
     <>
@@ -14,8 +17,9 @@ export default function Header() {
           onClick={() => navigate("/")}
         />
         <SearchBar />
-        <NavLinks />
+        <NavLinks setModalOpen={setModalOpen} />
       </Container>
+      {modalOpen && <NavbarModal />}
     </>
   );
 }
