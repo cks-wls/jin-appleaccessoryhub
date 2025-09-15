@@ -14,6 +14,15 @@ app/
 ├── components/       # 재사용 UI 컴포넌트
 │   ├── common/
 │   ├── main/
+│   │   ├── adproduct/
+│   │   ├── airpodsmax/
+│   │   ├── bottom/
+│   │   ├── category/
+│   │   ├── iphonepro14/
+│   │   ├── macbookair/
+│   │   ├── playstation/
+│   │   ├── product/
+│   │   ├── visionpro/
 │   ├── modal/
 │   ├── skeleton/
 ├── const/            # 전역 상수
