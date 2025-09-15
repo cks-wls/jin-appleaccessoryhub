@@ -21,11 +21,12 @@ const Container = styled.div`
   width: 100%;
   background-color: #211c24;
   flex-direction: column;
-  height: 632px;
+  height: 650px;
   justify-content: space-evenly;
   align-items: center;
   @media screen and (min-width: ${desktopWidth}) {
     flex-direction: row;
+    height: 632px;
   }
 `;
 const IphoneImage = styled.img`
